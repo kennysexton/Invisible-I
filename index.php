@@ -1,8 +1,6 @@
 <?php
 	session_start();
 ?>
-
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,12 +16,15 @@
 			<div class="top">
 				<h5 class="preview" id="filename">No file</h5>
 			</div>
-			<div class="card">
-				<div class="content">
-					<h1>Upload image</h1>
-					<img class="arrow" src="icons/arrow.svg">
+			<form action="http://cis-linux2.temple.edu/~tuf92968/lab4/php/uploadFile.php" id="form" method="post">
+				<div class="card" id="card">
+					<div class="content">
+						<h1 id="action-text">Upload image</h1>
+						<img id="main-icon" class="arrow" src="icons/upload.svg">
+						<!-- <button id="btn" type="submit"></button> -->
+					</div>
 				</div>
-			</div>
+			</form>
 			<div class="des">
 				<p>Invisible eye is a tool that displays <a href="https://en.wikipedia.org/wiki/Exif">EXIF</a> metadata associated with jpeg images.</p>
 			</div>
@@ -33,7 +34,6 @@
 			
 		</div>
 		<input type="file" id="fileInput" accept=".jpg, .jpeg">
-		
 		<!-- scripts -->
 		<script src="js/main.js"></script>
 		
