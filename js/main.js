@@ -9,8 +9,8 @@ $(document).ready(function(){
 	$('.card').click(function(){
 			/* Receive File */
 			if (btnstate == 2) {
-				alert('Second Click!');
 				document.getElementById("form").submit();
+				alert('Second Click!');
 			} else {
 				$('input[type="file"]').click();
 				btnstate = 1;
@@ -18,11 +18,11 @@ $(document).ready(function(){
 	
 	});
 	
-	document.getElementById('fileInput').onchange = function()
+	document.getElementById('file').onchange = function()
 	{
 		// Show update
 		//alert('Selected file: ' + this.value);
-		var selectedFile = document.getElementById('fileInput').files[0].name;
+		var selectedFile = document.getElementById('file').files[0].name;
 		btnstate = 2;
 		// Change Button
 		document.getElementById("filename").innerHTML = selectedFile;
