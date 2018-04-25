@@ -35,10 +35,10 @@
     <title>Lab 2</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="CSS/signin.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
   </head>
 	<script>
 		$(document).ready(function()	
