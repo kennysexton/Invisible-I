@@ -10,7 +10,7 @@ $(document).ready(function(){
 			/* Receive File */
 			if (btnstate == 2) {
 				document.getElementById("form").submit();
-				alert('Second Click!');
+				// alert('Second Click!');
 			} else {
 				$('input[type="file"]').click();
 				btnstate = 1;

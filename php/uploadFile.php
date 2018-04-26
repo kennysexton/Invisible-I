@@ -18,11 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		print "Error: ".UPLOAD_ERR_OK;	
 	}
 }
+
+	echo '<pre>';
 	print "<br>";
-	chdir('../bin/ExifRead-2.1.2/');
+	chdir('../ExifRead-2.1.2/');
 	print "cp4 <br>";
-	exec('python EXIF.py ../../uploads/file1.jpg > output.txt');
-	print "cp5 <br>";
+	exec('pwd', $out1);
+	var_dump($out1);
+	print "<br>";
+	exec('./EXIF.py ../uploads/file1.jpg 2>&1', $out);
+	var_dump($out);
+	print "<br> cp5 <br>";
+	echo '</pre>';
 	
 
 
