@@ -1,5 +1,12 @@
 <?php
 	session_start();
+	// if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
+		// header("location: login.php");
+		// exit();
+	// }
+	
+	// 0: Upload View
+	// 1: Results View
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,12 +18,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>	
 	<body>
-		
-		<div class="center">
+		<!-- Upload -->
+		<div id="upload" class="center">
 			<div class="top">
 				<h5 class="preview" id="filename">No file</h5>
 			</div>
-			<form action="http://cis-linux2.temple.edu/~tuf92968/lab4/php/uploadFile.php" id="form" method="post" enctype="multipart/form-data">
+			<form action="http://cis-linux2.temple.edu/~tuf92968/lab4/php/uploadFile.php" id="form" method="post" enctype="multipart/form-data" target="iframe">
 				<div class="card" id="card">
 					<div class="content">
 						<h1 id="action-text">Upload image</h1>
@@ -34,9 +41,7 @@
 			<div class="footer">
 				<a href="https://github.com/kennysexton/Invisible-I"><img class="git" src="icons/github.svg"></a>
 			</div>
-			
 		</div>
-		
 		<!-- scripts -->
 		<script src="js/main.js"></script>
 		
