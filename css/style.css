@@ -16,6 +16,7 @@ body {
 	padding: .5% 1%;
 	border-radius: 3px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	cursor: pointer;
 }
 
 .content {
@@ -93,4 +94,39 @@ input{
 
 #btn {
 	display: none;
+}
+
+/* Transition */
+.slider {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  overflow: hidden;
+  background-color: #000; color: #FFF;
+  transition: all 1s;
+}
+
+.slider.close {
+  top: 100vh;
+  height: 0;
+}
+
+iframe {
+	display: none;
+}
+
+#back {
+	-webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+	position: absolute;
+	width: 3%;
+	padding: 1%;
+}
+
+#thumb {
+	max-width: 40%;
+	max-height: 30%;
+	position: absolute;
+	
 }

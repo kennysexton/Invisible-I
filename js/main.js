@@ -6,10 +6,12 @@
 */
 var btnstate = 0;
 $(document).ready(function(){
+	
 	$('.card').click(function(){
 			/* Receive File */
 			if (btnstate == 2) {
 				document.getElementById("form").submit();
+				$('.slider').toggleClass('close');
 				// alert('Second Click!');
 			} else {
 				$('input[type="file"]').click();
@@ -29,8 +31,11 @@ $(document).ready(function(){
 		document.getElementById("action-text").innerHTML = "Submit";
 		document.getElementById("main-icon").src="icons/arrow_white.svg";
 		document.getElementById('card').style.cssText = 'background: linear-gradient(to right, #FF9F4F, #FFAE6B);  color: white;';
-		document.getElementById('main-icon').style.cssText = 'width: 20%;';
-		
-		
+		document.getElementById('main-icon').style.cssText = 'width: 20%;';	
 	};
+	
+	
+	// function updatepicture(pic){
+		// document.getElementById("image").setAttribute("src", pic);
+	// }
 });
