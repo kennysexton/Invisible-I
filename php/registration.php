@@ -34,7 +34,7 @@
 	echo "Insert worked !!! <br>";
 	//Prepare email to authenticate
 	$msg = "Please click on the link to set password for your account:".
-		"http://cis-linux2.temple.edu/~tug83270/lab2/php/authenticate.php?Email=$Email&Acode=$Acode";
+		"http://cis-linux2.temple.edu/~tug83270/Invisible-I/php/authenticate.php?Email=$Email&Acode=$Acode";
 	//Ready to send email
 	$to = $Email;
 	$subject = "registration test";
@@ -45,7 +45,7 @@
 	
 	$_SESSION["RegState"] = 1;
 	//Updates the status of the user to "registered"
-	$query = "Update InvisibleUsers set Status = 1 where Email = '$Email';";
+	/*$query = "Update InvisibleUsers set Status = 1 where Email = '$Email';";
 	$result = mysqli_query($con, $query);
 	if(!$result)
 	{
@@ -54,7 +54,7 @@
 		$_SESSION["Message"] = "User status update failure: ".mysqli_error($con);
 	}
 	else
-		$_SESSION["Message"] = "User status update successful";
+		$_SESSION["Message"] = "User status update successful";*/
 	header("location: ../login.php");
 	exit();
 	

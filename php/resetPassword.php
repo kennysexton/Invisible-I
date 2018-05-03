@@ -16,14 +16,14 @@
 	echo "Database connected !!! <br>";
 	
 	//Gets the authentication code stored in the MySQL row associated with the user
-	$Acodequery = "SELECT Acode from Users where Email='$email';";
+	$Acodequery = "SELECT Acode from InvisibleUsers where Email='$email';";
 	
 	$result = mysqli_query($con, $Acodequery);
 	if(!$result)
 	{
 		$_SESSION["RegState"] = -12;
 		$_SESSION["Message"] = "Retrieval failed: " . mysqli_error($con);
-		header("location: ../index.php");
+		header("location: ../login.php");
 		exit();
 	}
 	
@@ -43,6 +43,6 @@
 		$_SESSION["Message"] = "Account failed to authenticate, authentication code did not match $email $checkcode $thecode";
 		
 	}
-	header("location: ../index.php");
+	header("location: ../login.php");
 	exit();	
 ?>

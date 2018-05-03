@@ -17,14 +17,14 @@
 	}
 	echo "Database connected !!! <br>";
 	//Query for getting the authentication code
-	$Acodequery = "SELECT Acode from Users where Email='$email';";
+	$Acodequery = "SELECT Acode from InvisibleUsers where Email='$email';";
 	//making sure the query worked
 	$result = mysqli_query($con, $Acodequery);
 	if(!$result)
 	{
 		$_SESSION["RegState"] = -10;		
 		$_SESSION["Message"] = "Retrieval failed: " . mysqli_error($con);
-		header("location: ../index.php");
+		header("location: ../login.php");
 		exit();
 	}
 	//Turning the result of the query into a usable integer
@@ -40,7 +40,7 @@
 		$time = date("Y-m-d h:i:s");
 		
 		//Query for setting the authentication time
-		$Acodeset = "UPDATE Users SET Adatetime='$time' WHERE Email='$email';";
+		$Acodeset = "UPDATE InvisibleUsers SET Adatetime='$time' WHERE Email='$email';";
 		$result = mysqli_query($con, $Acodeset);
 		if(!$result)
 		{
@@ -60,6 +60,6 @@
 		$_SESSION["Message"] = "Link is incorrect, authentication code did not match $email $checkcode $thecode";
 		
 	}
-	header("location: ../index.php");
+	header("location: ../login.php");
 	exit();	
 ?>

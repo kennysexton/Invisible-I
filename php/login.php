@@ -15,12 +15,12 @@
 	echo "Database connected !!! <br>";
 	// Create a query to find a matching username and password
 
-	$query = "SELECT * FROM Users WHERE Email='$email' AND Password='$password';";
+	$query = "SELECT * FROM InvisibleUsers WHERE Email='$email' AND Password='$password';";
 	$result = mysqli_query($con, $query);
 	if(!$result)
 	{
 		$_SESSION["Message"] = "Retrieval failed: " . mysqli_error($con);
-		header("location: ../index.php");
+		header("location: ../login.php");
 		exit();
 	}
 	
@@ -40,11 +40,11 @@
 			$_SESSION["Message"] = "Admin session";
 			
 			
-			header("location: admin.php");
+			header("location: ../admin.php");
 			exit();
 		}
 				
-		header("location: services.php");
+		header("location: ../index.php");
 		exit();
 	}
 	else
