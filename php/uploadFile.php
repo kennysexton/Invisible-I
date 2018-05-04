@@ -1,8 +1,10 @@
 <?php
-
 	session_start();
+	$_SESSION["dataArray"] = NULL;
 	$target_dir = "../uploads/";
-	// $file_name = $_FILES['file']['name'];
+	$temp = explode(".", $_FILES["file"]["name"]);
+	$file_name = "file1". '.' . strtolower(end($temp));
+	
 
 	print "cp1 <br>";
 
@@ -12,7 +14,7 @@
 	echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		if (move_uploaded_file($_FILES["file"]["tmp_name"], "../uploads/".$_FILES['file']["name"])){
+		if (move_uploaded_file($_FILES["file"]["tmp_name"], "../uploads/".$file_name)){
 			print "cp3 <br>";
 		}
 		else {
@@ -28,14 +30,16 @@
 	exec('pwd', $out1);
 	var_dump($out1);
 	print "<br>";
-	exec('./EXIF.py ../uploads/file1.jpg 2>&1', $out);
+	chmod($file_name, 777);
+	exec('./EXIF.py ../uploads/'.$file_name.' 2>&1', $out);
+	$_SESSION["dataArray"] = $out;
 	var_dump($out);
 	echo '</pre>';
 	
 	
-	
-	$_SESSION["view"] = 1;
 	header ('location: ../results.php');
+	
+	print "fin";
 	exit();
 	
 

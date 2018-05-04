@@ -33,9 +33,4 @@ $(document).ready(function(){
 		document.getElementById('card').style.cssText = 'background: linear-gradient(to right, #FF9F4F, #FFAE6B);  color: white;';
 		document.getElementById('main-icon').style.cssText = 'width: 20%;';	
 	};
-	
-	
-	// function updatepicture(pic){
-		// document.getElementById("image").setAttribute("src", pic);
-	// }
 });

@@ -5,8 +5,6 @@
 		// exit();
 	// }
 	
-	// 0: Upload View
-	// 1: Results View
 ?>
 <!DOCTYPE html>
 <html>
