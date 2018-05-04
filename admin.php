@@ -41,6 +41,13 @@
   </head>
 
 	<script>
+	
+		$(".userSelection").click(function()
+		{
+			
+			
+		});
+	
 		$(document).ready(function()	
 		{
 			$("#ShowUsersView").show();
@@ -109,6 +116,7 @@
 					exit();
 				}
 				
+				$rownum=0;
 				//Prints out lab 1 results
 				while($row = mysqli_fetch_row($result))
 				{
@@ -116,7 +124,7 @@
 					if($row[6] != 3)
 					{
 					echo "<td>
-						<div class=\"radio\"><label><input type=\"radio\" name=\"useropt\"></label></div>
+						<div class=\"radio\"><label><input type=\"radio\" name=\"useropt\ value=\"$row[0]\"></label></div>
 						</td>";
 					}
 					
@@ -128,9 +136,9 @@
 			?>
 		
 		</table>
-	<button id="EditUser" class="btn btn-lg btn-primary btn-block" type="button">Edit / Delete Selected User</button>
+		<button id="EditUser" class="btn btn-lg btn-primary btn-block" type="button">Edit / Delete Selected User</button>
 	
-    <button id="AddUser" class="btn btn-lg btn-primary btn-block" type="button">Add New User</button>
+		<button id="AddUser" class="btn btn-lg btn-primary btn-block" type="button">Add New User</button>
 	
 
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
@@ -138,56 +146,74 @@
 	
 	
 	<form id="AddUserView" action="php/addUser.php" class="form-signin" method="post">
-		<button class="ShowUserTable btn btn-lg btn-primary btn-block" type="button">Go Back</button>
-		<br>
+	
+		<div class = "col-xs-3">
+			<button class="ShowUserTable btn btn-lg btn-primary btn-block" type="button">Go Back</button>
+			<br>
 
-		<label for="inputEmail" class="sr-only">Email address</label>		
-		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+			<label for="inputEmail" class="sr-only">Email address</label>		
+			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 	  
 
-		<label for="inputPassword" class="sr-only">Password</label>	
-		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<label for="inputPassword" class="sr-only">Password</label>	
+			<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	
 	
-		<label class="radio-inline"><input type="radio" name="statusopt">Suspended</label>
-		<label class="radio-inline"><input type="radio" name="statusopt">Basic User</label>
-		<label class="radio-inline"><input type="radio" name="statusopt">Admin</label>
+			<label class="radio-inline"><input type="radio" name="statusopt">Suspended</label>
+			<label class="radio-inline"><input type="radio" name="statusopt">Basic User</label>
+			<label class="radio-inline"><input type="radio" name="statusopt">Admin</label>
 
-		<br>
+			<br>
 		
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Create User</button>
-
+			<button class="btn btn-lg btn-primary " type="submit">Create User</button>
+		</div>
 	</form>
 	
 	<div id="EditUserView">
-		<button class="ShowUserTable btn btn-lg btn-primary btn-block" type="button">Go Back</button>
-		<br>
-		<form id="ChangeEmailForm">
-		<label for="inputEmail" class="sr-only">Email address</label>
-		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-		<br>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Change Email</button>
-		<br>
-		</form>
-		
-		<form id="ChangePasswordForm">
-		<br>
-		<label for="inputPassword" class="sr-only">Password</label>	
-		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-		<br>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
-		<br>
-		</form>
-		
-		<form id="ChangeStatusForm">
-		<br>
-		<label class="radio-inline"><input type="radio" name="statusopt">Suspended</label>
-		<label class="radio-inline"><input type="radio" name="statusopt">Basic User</label>
-		<label class="radio-inline"><input type="radio" name="statusopt">Admin</label>	
-		<br>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Change Status</button>
-		</form>
 	
+
+	
+			<button class="ShowUserTable btn btn-lg btn-primary btn-block" type="button">Go Back</button>
+			<br>
+			<form id="ChangeEmailForm">
+			<div class = "col-xs-3">
+		
+				<label for="inputEmail" class="sr-only col-xs-3">Email address</label>
+				<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				<br>
+				<button class="btn btn-lg btn-primary" type="submit">Change Email</button>
+				<br>
+			</div>
+			</form>
+		
+			<form id="ChangePasswordForm">
+			<div class = "col-xs-3">
+	
+			<hr />
+
+				<label for="inputPassword" class="sr-only">Password</label>	
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<br>
+				<button class="btn btn-lg btn-primary" type="submit">Change Password</button>
+				<br>
+			</div>
+			</form>
+		
+			<form id="ChangeStatusForm">
+			<div class = "col-xs-3">
+			
+			<hr />
+
+				<label class="radio-inline"><input type="radio" name="statusopt">Suspended</label>
+				<label class="radio-inline"><input type="radio" name="statusopt">Basic User</label>
+				<label class="radio-inline"><input type="radio" name="statusopt">Admin</label>	
+				<br>
+				<button class="btn btn-lg btn-primary" type="submit">Change Status</button>
+			</div>
+			</form>
+			<hr />
+			<button class="btn btn-lg btn-primary" type="button">Delete This User</button>
+
 	
 	</div>	
 	

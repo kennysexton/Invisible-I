@@ -40,16 +40,16 @@
 	if($password1 == $password2)
 	{
 		//Sets the password and updates the status of the user
-		$updatepassword = "UPDATE Users SET Password='$password1' WHERE Email='$email';";
+		$updatepassword = "UPDATE InvisibleUsers SET Password='$password1' WHERE Email='$email';";
 		$result = mysqli_query($con, $updatepassword);
-		$updatestatus = "UPDATE Users SET Status=2 WHERE Email='$email';";
+		$updatestatus = "UPDATE InvisibleUsers SET Status=1 WHERE Email='$email';";
 		//If update password query fails
 		if(!$result)
 		{
 			$_SESSION["RegState"] = -13;
 			
 			$_SESSION["Message"] = "Update failed: " . mysqli_error($con);
-			header("location: ../index.php");
+			header("location: ../login.php");
 			exit();
 		}		
 		
@@ -60,7 +60,7 @@
 			$_SESSION["RegState"] = -14;
 			
 			$_SESSION["Message"] = "Update failed: " . mysqli_error($con);
-			header("location: ../index.php");
+			header("location: ../login.php");
 			exit();
 		}				
 		$_SESSION["RegState"]=3;
@@ -72,12 +72,12 @@
 		$_SESSION["RegState"] = -8;
 		
 		$_SESSION["Message"] = "Password fields do not match";
-		header("location: ../index.php");
+		header("location: ../login.php");
 		exit();		
 	}
 	
 	//$_SESSION["Message"] = "Password set successfully";
-	header("location: ../index.php");
+	header("location: ../login.php");
 	exit();
 	
 ?>

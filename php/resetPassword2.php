@@ -20,7 +20,7 @@
 	}
 	echo "Database connected !!! <br>";
 	//Query that gets the users password from the database.
-	$userquery = "SELECT Password from Users where Email='$email';";
+	$userquery = "SELECT Password from InvisibleUsers where Email='$email';";
 	
 	
 	$result = mysqli_query($con, $userquery);
@@ -29,7 +29,7 @@
 		$_SESSION["RegState"] = -7;
 		
 		$_SESSION["Message"] = "Retrieval failed: " . mysqli_error($con);
-		header("location: ../index.php");
+		header("location: ../login.php");
 		exit();
 	}
 	
@@ -40,7 +40,7 @@
 	if($password1 == $password2)
 	{
 		//Sets the password
-		$updatepassword = "UPDATE Users SET Password='$password1' WHERE Email='$email';";
+		$updatepassword = "UPDATE InvisibleUsers SET Password='$password1' WHERE Email='$email';";
 		$result = mysqli_query($con, $updatepassword);
 		$_SESSION["RegState"]=3;
 		$_SESSION["Message"] = "$passwordone $passwordtwo set successfully";
@@ -51,12 +51,12 @@
 		$_SESSION["RegState"] = -11;
 		
 		$_SESSION["Message"] = "Password fields do not match";
-		header("location: ../index.php");
+		header("location: ../login.php");
 		exit();		
 	}
 	
 	//$_SESSION["Message"] = "Password set successfully";
-	header("location: ../index.php");
+	header("location: ../login.php");
 	exit();
 	
 ?>

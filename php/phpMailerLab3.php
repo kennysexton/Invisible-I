@@ -56,15 +56,14 @@
 			print "test512";
 			$mail->Subject = $Subject;
 			print "test513";
-			$mail->Body = $msg;
-			print "test515";
+			$mail->Body = $Message;
+			print "test515 $SourceAddress $ToEmailAddress $msg $SourcePassword $";
 			$mail->send();
 			print "test514";
 
 			print "Email sent ... <br>";
-			$_SESSION["RegState"] = 3;
 			$_SESSION["Message"] = "Email sent.";
-			header("location:../index.php");
+			header("location:../login.php");
 			exit();
 		} 
 		catch (phpmailerException $e) 
@@ -74,8 +73,8 @@
 			$_SESSION["RegState"] = -4;
 			print "Mail send failed: ".$e->errorMessage;
 		}
-		header("location:../index.php");
-		exit();
+		//header("location:../index.php");
+		//exit();
 	}
 
 ?>

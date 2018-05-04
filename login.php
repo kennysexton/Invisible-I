@@ -30,9 +30,9 @@
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-    <link rel="icon" href="images/milksteak.jpg">
+    <link rel="icon" href="imgs/i-eye.jpg">
 
-    <title>Lab 2</title>
+    <title>Invisible I</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -101,7 +101,7 @@
 	</script>
   <body class="text-center">
     <form id="LoginView" action="php/login.php" class="form-signin" method="post">
-      <img class="mb-4" src="images/i-eye.jpg" alt="" width="173" height="172">
+      <img class="mb-4" src="imgs/i-eye.jpg" alt="" width="173" height="172">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
