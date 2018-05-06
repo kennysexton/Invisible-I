@@ -6,16 +6,20 @@
 		exit();
 	}
 	
-	$arrlength = count($_SESSION["dataArray"]);
-	
-	// function getIndex(){
-		// for ($x = 0; $x< $arrlength; $x++){
-			// echo $_SESSION["dataArray"][$x];
-			// echo <br>;
 
-		// }
-		
-	// }
+	
+	
+	
+	function getIndex($string){
+		$arrlength = count($_SESSION["dataArray"]);
+		for ($x = 0; $x< $arrlength; $x++){
+			if(strpos($_SESSION["dataArray"][$x], $string)!==false){
+				$index = (string)$x;
+				return $index;
+			}
+		}
+	 echo "";
+	}
 ?>
 
 
@@ -60,13 +64,11 @@
 			  <tbody>
 				<tr>
 				  <th scope="row">Manufacturer</th>
-				  <td><?php echo end(explode(":", $_SESSION["dataArray"]['42'])) ?></td>
-
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('Image Make (ASCII)')])) ?></td>
 				</tr>
 				<tr>
 				  <th scope="row">Model</th>
-				  <td><?php echo end(explode(":", $_SESSION["dataArray"]['43'])) ?></td>
-
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('Image Model (ASCII)')])) ?></td>
 				</tr>
 			  </tbody>
 			</table>
@@ -81,19 +83,47 @@
 			  </thead>
 			  <tbody>
 				<tr>
-				  <th scope="row">Manufacturer</th>
-				  <td><?php echo end(explode(":", $_SESSION["dataArray"]['42'])) ?></td>
-
+				  <th scope="row">Model</th>
+				  <td><?php	echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF LensModel (ASCII)')]))?></td>
+				</tr>
+			  </tbody>
+			</table>
+			
+			<table class="table">
+			  <thead class="thead-dark">
+				<tr>
+				  <th scope="col">Image</th>
+				  <th scope="col"></th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <th scope="row">Date Taken</th>
+				  <td><?php	echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF DateTimeOriginal (ASCII)')]))?><td>
 				</tr>
 				<tr>
-				  <th scope="row">Model</th>
-				  <td><?php echo end(explode(":", $_SESSION["dataArray"]['43'])) ?></td>
-
+				  <th scope="row">focal length</th>
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF FocalLength (Ratio)')])) ?></td>
+				</tr>
+				<tr>
+				  <th scope="row">f-stop</th>
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF FNumber (Ratio)')])) ?></td>
+				</tr>
+				<tr>
+				  <th scope="row">shutter speed</th>
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF ExposureTime (Ratio)')])) ?></td>
+				</tr>
+				<tr>
+				  <th scope="row">ISO</th>
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF ISOSpeedRatings')])) ?></td>
+				</tr>
+				<tr>
+				  <th scope="row">Whtie Balance</th>
+				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF WhiteBalance')])) ?></td>
 				</tr>
 			  </tbody>
 			</table>
 			</div>
-
 		</div>
 		
 		<!-- scripts -->
