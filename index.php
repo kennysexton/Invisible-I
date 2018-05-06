@@ -5,6 +5,11 @@
 		exit();
 	}
 	
+	echo '<pre>';
+	chdir('./uploads');
+	exec('rm *', $out1);
+	echo '</pre>';
+	
 ?>
 <!DOCTYPE html>
 <html>

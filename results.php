@@ -50,11 +50,11 @@
 			
 			<img id="thumb" class="top" src="uploads/file1?nocache=<?php echo time(); ?>">
 			
-			<?php
+			 <?php /*
 			echo '<pre>';
 			print_r($_SESSION);
-			echo '</pre>';
-			?>
+			echo '</pre>';  */
+			 ?> 
 			
 			<!-- Table -->
 			<div class="table-width">

@@ -120,7 +120,7 @@ iframe {
 	-webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 	position: absolute;
-	width: 3%;
+	width: 4%;
 	padding: 1%;
 }
 
@@ -132,5 +132,8 @@ iframe {
 }
 
 .table-width {
-	margin: 0% 35%;
+	position: relative;
+	padding-top: 25%;
+	margin: 0% 33%;
+	
 }
