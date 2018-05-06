@@ -1,6 +1,11 @@
 <?php
 	session_start();
 	
+	if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
+		header("location: login.php");
+		exit();
+	}
+	
 	$arrlength = count($_SESSION["dataArray"]);
 	
 	// function getIndex(){

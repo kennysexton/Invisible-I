@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	// if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
-		// header("location: login.php");
-		// exit();
-	// }
+	if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
+		header("location: login.php");
+		exit();
+	}
 	
 ?>
 <!DOCTYPE html>
