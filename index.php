@@ -1,6 +1,13 @@
 <?php
 	session_start();
-	if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
+	if($_SESSION["RegState"] == 7)	
+	{	
+		header("location: suspended.html");	
+		exit();	
+	}	
+	
+	
+	if (!isset($_SESSION["RegState"]) || ( $_SESSION["RegState"] != 4 && $_SESSION["RegState"] != 5)) {
 		header("location: login.php");
 		exit();
 	}
@@ -28,7 +35,7 @@
 				<h5 class="preview" id="filename">No file</h5>
 			</div>
 <<<<<<< HEAD
-			<form action="php/uploadFile.php" id="form" method="post" enctype="multipart/form-data" target="iframe">
+			<form action="http://cis-linux2.temple.edu/~tuf92968/lab4/php/uploadFile.php" id="form" method="post" enctype="multipart/form-data" target="iframe">
 =======
 			
 			<form action="http://cis-linux2.temple.edu/~tuf92968/lab4/php/logout.php" method="get" class="top" id="right">
@@ -51,6 +58,16 @@
 			<div class="des">
 				<p>Invisible eye is a tool that displays <a href="https://en.wikipedia.org/wiki/Exif">EXIF</a> metadata associated with jpeg images.</p>
 			</div>
+			
+-			<?php	
+-				if($_SESSION["RegState"] == 5)	
+-				{	
+-					echo "<a href=\"admin.php\">Admin Page</a>";	
+-						
+-				}	
+-				
+-			?>			
+			
 			<div class="footer">
 				<a href="https://github.com/kennysexton/Invisible-I"><img class="git" src="icons/github.svg"></a>
 			</div>
