@@ -1,6 +1,13 @@
 <?php
 	session_start();
-	if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
+	
+	if($_SESSION["RegState"] == 7)
+	{
+		header("location: suspended.html");
+		exit();
+	}	
+	else if (!isset($_SESSION["RegState"]) || ( $_SESSION["RegState"] != 4 && $_SESSION["RegState"] != 5)) 
+	{
 		header("location: login.php");
 		exit();
 	}
@@ -42,6 +49,15 @@
 			<div class="des">
 				<p>Invisible eye is a tool that displays <a href="https://en.wikipedia.org/wiki/Exif">EXIF</a> metadata associated with jpeg images.</p>
 			</div>
+			
+			<?php
+				if($_SESSION["RegState"] == 5)
+				{
+					echo "<a href=\"admin.php\">Admin Page</a>";
+					
+				}
+			
+			?>
 			<div class="footer">
 				<a href="https://github.com/kennysexton/Invisible-I"><img class="git" src="icons/github.svg"></a>
 			</div>

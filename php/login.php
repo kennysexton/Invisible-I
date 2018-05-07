@@ -34,7 +34,7 @@
 		$_SESSION["Message"] = "You have logged in " . $_SESSION["RegState"];
 		$_SESSION["Email"] = $email;
 		//If they are an admin, it sends them to the admin page
-		if($row[6] == 3)
+		if($row[6] == 2 || $row[6] == 3)
 		{
 			$_SESSION["RegState"] = 5;
 			$_SESSION["Message"] = "Admin session";
@@ -43,6 +43,15 @@
 			header("location: ../admin.php");
 			exit();
 		}
+		if($row[6] == -1)
+		{
+			$_SESSION["RegState"] = 7;
+			$_SESSION["Message"] = "Suspended account";
+			
+			
+			header("location: ../suspended.html");
+			exit();
+		}		
 				
 		header("location: ../index.php");
 		exit();
