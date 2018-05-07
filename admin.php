@@ -2,7 +2,7 @@
 	session_start();
 	//Use $_SESSION["RegState"] to control views
 	if(!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 5)
-		{
+	{
 		header("location: index.php");
 		exit();
 		
@@ -18,7 +18,8 @@
 	//RegState = 3: Password Set
 	//RegState = 4: Logged in
 	//RegState = 5: Logged in and Admin
-	
+	//RegState = 7: User suspended
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,11 +46,7 @@
 
 	<script>
 	
-		$(".userSelection").click(function()
-		{
-			
-			
-		});
+
 	
 		$(document).ready(function()	
 		{
@@ -112,7 +109,7 @@
   
   <body class="text-center">
     <form id="ShowUsersView">
-
+		<a href="index.php">Go to the main page</a>
 
 	
 		<table class="table table-bordered">
@@ -161,9 +158,7 @@
 					
 					echo "</tr>";
 				}
-			
-				$_SESSION["RegState"] = 3;
-			
+						
 			?>
 		
 		</table>

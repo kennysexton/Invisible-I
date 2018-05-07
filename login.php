@@ -18,13 +18,13 @@
 	//RegState = 6: Password is being reset
 	
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CIS3238 Lab 2 Ryan Batschelet">
-    <meta name="author" content="Ryan Batschelet">
+    <meta name="description" content="Invisible I">
+    <meta name="author" content="Invisible I Team">
 	
 	<script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
