@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	if (!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 4) {
+	if (!isset($_SESSION["RegState"]) || ($_SESSION["RegState"] != 4 && $_SESSION["RegState"] != 5)) {
 		header("location: login.php");
 		exit();
 	}
