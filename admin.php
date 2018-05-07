@@ -1,13 +1,16 @@
 <?php	//lab1results table, ended up going unused and replaced by services.php
 	session_start();
 	//Use $_SESSION["RegState"] to control views
-	if(!isset($_SESSION["RegState"]))
-		$_SESSION["RegState"] = 0;
-	//View 0: Login view with registration button
-	//View 1: Registration view, email and acode sent
-	//View 2: Email and Authcode verified
-	//View 3: Password Saved
-	//View 4: Logged in
+	if(!isset($_SESSION["RegState"]) || $_SESSION["RegState"] != 5)
+		{
+		header("location: index.php");
+		exit();
+		
+	}
+	//View 0: View Table of All Users
+	//View 1: Edit selected user
+	//View 2: Add new user
+
 
 	//RegState = 0: Not registered
 	//RegState = 1: Registered and email sent
@@ -67,6 +70,34 @@
 				$("#ShowUsersView").hide();
 				$("#AddUserView").hide();
 				$("#EditUserView").show();
+				/*var possibleusers = document.getElementsByClassName("useropt");
+				for(var i = 0; i < possibleusers.length + 1; i++)
+				{
+					alert("test" + i + possibleusers[i].checked);
+					console.log(i);
+					if(possibleusers[i].checked)
+					{
+						console.log("ok");
+						document.getElementsByClassName("HiddenUserID").setAttribute("value", possibleusers[i].value);
+						document.getElementById("UserID").innerHTML = "User ID" + possibleuser[i].value;
+						
+						
+						break;
+					}
+					
+				}*/
+				
+				var selecteduser = document.querySelector('input[name = "useropt"]:checked').value;
+				
+				alert(selecteduser);
+				var editformvalues = document.getElementsByClassName("HiddenUserID");
+				for(var i = 0; i < editformvalues.length; i++)
+				{
+					editformvalues[i].setAttribute("value", selecteduser);
+				}
+				document.getElementById("UserID").innerHTML = "User ID " + selecteduser;
+
+				
 			};
 			});
 			$("#AddUser").click(function(){
@@ -124,7 +155,7 @@
 					if($row[6] != 3)
 					{
 					echo "<td>
-						<div class=\"radio\"><label><input type=\"radio\" name=\"useropt\ value=\"$row[0]\"></label></div>
+						<div class=\"radio useropt\"><label><input type=\"radio\" name=\"useropt\" value=\"$row[0]\" checked=\"checked\"></label></div>
 						</td>";
 					}
 					
@@ -159,9 +190,9 @@
 			<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	
 	
-			<label class="radio-inline"><input type="radio" name="statusopt">Suspended</label>
-			<label class="radio-inline"><input type="radio" name="statusopt">Basic User</label>
-			<label class="radio-inline"><input type="radio" name="statusopt">Admin</label>
+			<label class="radio-inline"><input type="radio" value="-1" name="statusopt">Suspended</label>
+			<label class="radio-inline"><input type="radio" value="1" name="statusopt" checked="checked">Basic User</label>
+			<label class="radio-inline"><input type="radio" value="2" name="statusopt">Admin</label>
 
 			<br>
 		
@@ -171,49 +202,58 @@
 	
 	<div id="EditUserView">
 	
-
-	
+			<button id="UserID" class="btn btn-lg btn-primary btn-block">Example Text</button>	
 			<button class="ShowUserTable btn btn-lg btn-primary btn-block" type="button">Go Back</button>
 			<br>
-			<form id="ChangeEmailForm">
+			<form id="ChangeEmailForm" action="php/editEmail.php" class="form-signin" method="post">
+			<input class="HiddenUserID" type="hidden" name="ID">
+			
 			<div class = "col-xs-3">
 		
-				<label for="inputEmail" class="sr-only col-xs-3">Email address</label>
-				<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				<label for="inputEmailTwo" class="sr-only col-xs-3">Email address</label>
+				<input type="email" name="email" id="inputEmailTwo" class="form-control" placeholder="Email address" required autofocus>
 				<br>
 				<button class="btn btn-lg btn-primary" type="submit">Change Email</button>
 				<br>
 			</div>
 			</form>
 		
-			<form id="ChangePasswordForm">
+			<form id="ChangePasswordForm" action="php/editPassword.php" class="form-signin" method="post">
+			<input class="HiddenUserID" type="hidden" name="ID">
+
 			<div class = "col-xs-3">
 	
 			<hr />
 
-				<label for="inputPassword" class="sr-only">Password</label>	
-				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<label for="inputPasswordTwo" class="sr-only">Password</label>	
+				<input type="password" name="password" id="inputPasswordTwo" class="form-control" placeholder="Password" required>
 				<br>
 				<button class="btn btn-lg btn-primary" type="submit">Change Password</button>
 				<br>
 			</div>
 			</form>
 		
-			<form id="ChangeStatusForm">
+			<form id="ChangeStatusForm" action="php/editStatus.php" class="form-signin" method="post">
+			<input class="HiddenUserID" type="hidden" name="ID">
+			
 			<div class = "col-xs-3">
 			
 			<hr />
 
-				<label class="radio-inline"><input type="radio" name="statusopt">Suspended</label>
-				<label class="radio-inline"><input type="radio" name="statusopt">Basic User</label>
-				<label class="radio-inline"><input type="radio" name="statusopt">Admin</label>	
+				<label class="radio-inline"><input type="radio" name="statusopt" value="-1">Suspended</label>
+				<label class="radio-inline"><input type="radio" name="statusopt" checked="checked" value="1">Basic User</label>
+				<label class="radio-inline"><input type="radio" name="statusopt" value="2">Admin</label>	
 				<br>
 				<button class="btn btn-lg btn-primary" type="submit">Change Status</button>
 			</div>
 			</form>
 			<hr />
-			<button class="btn btn-lg btn-primary" type="button">Delete This User</button>
-
+			
+			<form id="DeleteUserForm" action="php/deleteUser.php" class="form-signin" method="post">
+				<input class="HiddenUserID" type="hidden" name="ID">
+			
+				<button class="btn btn-lg btn-primary" type="submit">Delete This User</button>
+			</form>
 	
 	</div>	
 	
