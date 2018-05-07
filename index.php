@@ -33,7 +33,7 @@
 			<div class="top">
 				<h5 class="preview" id="filename">No file</h5>
 			</div>
-			<form action="http://cis-linux2.temple.edu/~tuf92968/lab4/php/uploadFile.php" id="form" method="post" enctype="multipart/form-data" target="iframe">
+			<form action="php/uploadFile.php" id="form" method="post" enctype="multipart/form-data" target="iframe">
 				<div class="card" id="card">
 					<div class="content">
 						<h1 id="action-text">Upload image</h1>
