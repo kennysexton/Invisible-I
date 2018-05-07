@@ -18,6 +18,7 @@
 		<meta charset="utf-8">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,500" rel="stylesheet">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>	
 	<body>
