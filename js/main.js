@@ -1,9 +1,3 @@
-/*
-	0 - Null
-	1 - Active
-	2 - Submit clicked
-
-*/
 var btnstate = 0;
 $(document).ready(function(){
 	
@@ -18,6 +12,11 @@ $(document).ready(function(){
 				btnstate = 1;
 			}
 	
+	});
+	
+	$('.logout').click(function(){
+		alert('logout Click!');
+		document.getElementById('right').submit();
 	});
 	
 	document.getElementById('file').onchange = function()

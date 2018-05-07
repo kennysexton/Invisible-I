@@ -75,10 +75,6 @@
 				  <th scope="row">Model</th>
 				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('Image Model (ASCII)')])) ?></td>
 				</tr>
-				<tr>
-				  <th scope="row">Type</th>
-				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF FileSource (Undefined)')])) ?></td>
-				</tr>
 			  </tbody>
 			</table>
 			
@@ -105,18 +101,27 @@
 				</tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-				  <th scope="row">Size</th>
-				  <td><?php	echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF ExifImageWidth (Short)')])).' x'. end(explode(":", $_SESSION["dataArray"][getIndex('EXIF ExifImageLength (Short)')]))?><td>
+				<tr>
+				  <th scope="row">Date Taken</th>
+				  <td><?php	$res = explode(" ", $_SESSION["dataArray"][getIndex('EXIF DateTimeOriginal (ASCII)')]);
+				  
+				  	end($res);
+					echo prev($res);
+					?>
+				  
+				  <td>
 				</tr>
+				
+				<tr>
+				  <th scope="row">Time Taken</th>
+				  <td><?php	echo end(explode(" ", $_SESSION["dataArray"][getIndex('EXIF DateTimeOriginal (ASCII)')]))?><td>
+				</tr>
+				
 				<tr>
 				  <th scope="row">DPI</th>
 				  <td><?php	echo end(explode(":", $_SESSION["dataArray"][getIndex('Image XResolution (Ratio)')]))?><td>
 				</tr>
-				<tr>
-				  <th scope="row">Date Taken</th>
-				  <td><?php	echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF DateTimeOriginal (ASCII)')]))?><td>
-				</tr>
+				
 				<tr>
 				  <th scope="row">Focal Length</th>
 				  <td><?php echo end(explode(":", $_SESSION["dataArray"][getIndex('EXIF FocalLength (Ratio)')])).mm ?></td>
