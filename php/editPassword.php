@@ -34,7 +34,6 @@
 	//Prepare email to authenticate
 
 	
-	$_SESSION["RegState"] = 1;
 	header("location: ../admin.php");
 	exit();
 	
