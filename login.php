@@ -44,7 +44,7 @@
 		$(document).ready(function()	
 		{
 			var RegState = <?php echo $_SESSION["RegState"];?>;
-			alert("RegState = ["+RegState+"]");		//Getting the state of the user
+// 			alert("RegState = ["+RegState+"]");		//Getting the state of the user
 			if(RegState != 2 && RegState != 6 && RegState != -11 && RegState != -8)
 			{										//Puts the user in the LoginView
 				$("#LoginView").show();
